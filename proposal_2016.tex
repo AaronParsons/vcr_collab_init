@@ -1,0 +1,1322 @@
+%XXX: Aaron, do one last check for new typos in my final series of edits.
+\documentclass[preprint,11pt]{aastex} 
+\let\captionbox=\undefined
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{mdwlist}
+\usepackage{natbib}
+\usepackage{natbibspacing}
+\usepackage[font={footnotesize}]{caption}
+\usepackage{wrapfig}
+\usepackage{sidecap}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{url}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt}
+\setlength{\bibspacing}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\headsep}{0pt}  
+\setlength{\topskip}{0pt}
+\setlength{\topmargin}{0pt}
+\setlength{\topsep}{6pt}
+\setlength{\partopsep}{0pt}
+\setlength{\footnotesep}{8pt}
+\pagestyle{plain}
+\citestyle{aa}
+\captionsetup[table]{labelsep=space}
+\captionsetup[figure]{labelsep=space}
+
+%%% ADDED FROM 2014 PROPOSAL
+%\newcommand{\Mycite}[1]{{\bf \cite{#1}}}
+%\newcommand{\Mycitet}[1]{{\bf \citet{#1}}}
+%\newcommand{\Mycitep}[1]{{\bf \citep{#1}}}
+%\newcommand{\Mycitealt}[1]{{\bf \citealt{#1}}}
+\newcommand{\Mycite}[1]{\cite{#1}}
+\newcommand{\Mycitet}[1]{\citet{#1}}
+\newcommand{\Mycitep}[1]{\citep{#1}}
+\newcommand{\Mycitealt}[1]{\citealt{#1}}
+
+\newcommand{\simgt}{\stackrel{>}{_{\sim}}}
+\newcommand{\compress}{\vspace{-0.25in}}
+\newcommand{\captionbaseline}{\renewcommand{\baselinestretch}{0.99}} 
+\newcommand{\Caption}[4]{\vspace{#1}\renewcommand{\baselinestretch}{#2}\caption{#4}\vspace{#3}}
+\def\kperp{k_{\bot}}
+\def\eppsilon{{$\varepsilon$ppsilon}}
+\def\kpar{k_{\|}}
+\def\k{{\bf k}}
+\def\sky{{\theta}}
+\def\HI{{H{\small I }}}
+\def\HII{{H{\small II }}}
+\def\xHI{{x_{\rm\HI}}}
+\newcommand{\startsquarepar}{%
+    \par\begingroup \parfillskip 0pt \relax}
+\newcommand{\stopsquarepar}{%
+    \par\endgroup}
+
+%%% UNCOMMENTED
+\usepackage{subfig}
+%\usepackage[countmax]{subfloat}
+
+
+\begin{document}
+%\title{Hydrogen Epoch of Reionization Array}
+
+\title{HERA: Illuminating Our Early Universe\\
+{\it For the Mid-Scale Science Projects category of the Mid-Scale Innovations Program (MSIP)}} 
+\vspace{6pt}
+
+{ \setlength{\parindent}{0cm}}
+%A statement of which of the four categories of MSIP is most appropriate for this proposal as the first sentence (see section II. Program Description).
+
+%Full outline and writing assignments at: 
+%\url{https://docs.google.com/document/d/1a0dsGRbLsnkuUmiF1tdvlo4D7c2eLh245E33Dqz43Co/}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OVERVIEW
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Overview of the Proposal}
+~
+\begin{figure}[h!]
+	\centering
+	\vspace{-23pt}
+	\includegraphics[height=1.51in]{plots/hera_render.png}
+	\includegraphics[trim={1.9in 0 .5in 0},clip,height=1.51in]{plots/hera19.png}
+	\vspace{-21pt}
+	\caption{Rendering of the 320-element core (left) of the full HERA-350 array and picture of 19 HERA 14-m, zenith-pointing dishes (with PAPER elements in the background) currently deployed in South Africa (right).} 
+	\label{fig:HERApictures}
+	\vspace{-9pt}
+\end{figure}
+
+\noindent The Hydrogen Epoch of Reionization Array (HERA) uses the redshifted 21\,cm line
+of neutral hydrogen to perform an unparalleled study of our Cosmic Dawn, from
+the formation of the first stars and black holes $\sim0.1~$Gyr after the Big
+Bang ($z\sim30$) through the full reionization of the intergalactic medium
+(IGM) $\sim1~$Gyr later ($z\sim6$).  By directly observing the large scale
+structure of the primordial IGM as it is heated and reionized, HERA complements
+other probes, adding transformative capabilities for
+understanding the astrophysics and fundamental cosmology of our early universe.
+Taking advantage of our new mastery of bright foreground systematics, HERA's
+purpose-built radio
+interferometer is optimized to deliver high signal-to-noise measurements of
+redshifted 21\,cm emission.
+With the first generation 21\,cm telescopes approaching the limits of their sensitivity, the timing is critical 
+for building this next step in the HERA plan---a plan which the 
+Radio, Millimeter, and Sub-millimeter panel of the 2010 {\em New Worlds, New Horizons} (NWNH) Decadal Survey 
+ranked its \textbf{top scientific priority.}
+
+This 4-year, \$15.9M proposal funds the full HERA experiment, from the construction of
+350 14-m parabolic dishes (320 in a dense core $+$ 30 outriggers) in the South African Karoo Radio
+Astronomy Reserve, through calibration and analysis, to the public
+dissemination of data products and the publication of results.
+With its conservatively designed instrument, HERA brings to bear both the sensitivity and the precision to deliver 
+its key science results on the basis of proven techniques.
+These science results include
+\begin{itemize}[noitemsep,nolistsep]
+\item measuring the 21\,cm power spectrum with high significance (\S\ref{sec:EoRPowerSpectra}),
+\item characterizing parametrized models of reionization and the first ionizing sources (\S\ref{sec:EoRPowerSpectra}),
+\item improving cosmic microwave background (CMB) constraints on primordial density fluctuations and neutrino masses by removing the optical depth degeneracy (\S\ref{sec:tau}), and
+\item directly imaging large scale reionization structure (\S\ref{sec:imaging}).
+\end{itemize}
+At the same time, HERA continues the development of new techniques that extend and improve its capabilities.
+Examples include improving foreground subtraction to expand the information content 
+in power spectral and imaging measurements and, with support from the Moore Foundation,
+extending HERA's performance at lower frequencies to probe IGM heating in the pre-reionization epoch (\S\ref{sec:EoX}).
+Beyond these directly supported applications, HERA's public data products and instrumentation platform enable other high-impact science, including 
+\begin{itemize}[noitemsep,nolistsep]
+\item 21\,cm cross-correlation (e.g. with JWST, WFIRST, CO, CII, and Ly$-\alpha$; \S\ref{sec:crossCorr}),
+\item searching for auroral radio bursts from exoplanetary magnetospheres (\S\ref{sec:exoplanets}), and
+\item performing triggered, low-frequency follow up and characterization of fast radio bursts (\S\ref{sec:FRBs}).
+\end{itemize}
+
+\noindent In this document, we 
+present the intellectual merit of HERA's science case (\S\ref{sec:science}),
+list HERA's science results and data products (\S\ref{sec:dataproducts}), and
+describe the experimental design principles behind the recent breakthrough results in 21\,cm reionization measurements (\S\ref{sec:lessons}).
+We then present the proposed instrument that best incorporates these principles (\S\ref{sec:design}) and the project
+timeline (\S\ref{sec:timeline}).  In \S\ref{sec:BI} we describe a
+plan to broaden HERA's impact with CHAMP, a research experience program that
+\begin{itemize}[noitemsep,nolistsep]
+\item expands CAMPARE, a program for recruiting underrepresented students into astronomy;
+\item trains cohorts of U.S.\ and South African students to do meaningful research on HERA; and
+\item incorporates year-round mentoring of those students, with help from local support networks. 
+\end{itemize}
+%California Arizona Minority Partnership for Astronomy Research and Education (CAMPARE)
+Finally, we survey the team's accomplishments under prior NSF support in \S\ref{sec:NSF} and conclude in \S\ref{sec:conclusion}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SCIENCE JUSTIFICATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-18pt}
+\section{Scientific Justification and Intellectual Merit}
+\vspace{-5pt}
+\label{sec:science}
+
+\noindent The {\it Cosmic Dawn} of our universe is one of the last unexplored
+frontiers in cosmic history. During this period, the IGM encodes a
+panoply of information about astrophysical and cosmological phenomena. Its
+evolution depends on the cosmic density field, the relative velocities of
+baryons and dark matter, and the sizes and clustering of the first galaxies.
+But it also depends on the constituents of those galaxies---Population
+III stars, later generation stars, stellar remnants, X-ray binaries,
+and early supermassive black holes.  Bulk properties like
+ultraviolet and X-ray luminosities and spectra also affect the thermal and
+ionization states of the IGM.  The wealth of unexplored physics during the Cosmic Dawn,
+culminating in the Epoch of Reionization (EoR), 
+led NWNH to highlight it as one of the top three ``priority science objectives'' for
+the decade.
+
+\begin{wrapfigure}{r}{0.51\textwidth}
+%\vspace{-10pt}
+\centering
+\vspace{-15pt}
+    \includegraphics[width=0.51\textwidth,clip]{plots/ionHist.pdf}
+  \vspace{-25pt}
+  \caption{Combining direct constraints on $x_\text{HI}$, the hydrogen neutral fraction, as a function of redshift (black points) with \emph{Planck} priors yields
+an inferred $95\%$ confidence region (gray).  HERA constraints with (dark red) and without (pale red) 
+a conservative $25\%$ modeling error in the $21\,\textrm{cm}$ power spectrum can dramatically narrow this confidence region.}
+	\label{fig:IonHist}
+  \vspace{-15pt}
+\end{wrapfigure} 
+
+
+Exploring the interplay of galaxies and large-scale structure during the EoR
+requires complementary observational approaches. CMB measurements 
+provide initial conditions for structure formation, and the Thomson
+scattering of CMB photons constrains the integrated column of 
+ionized gas, but even with kinetic Sunyaev-Zel'dovich measurements, 
+the detailed evolution of the IGM 
+is only loosely constrained \citep{haiman_holder2003,mortonson_hu2008,mesinger_et_al2012}.
+Lyman-$\alpha$ absorption features in quasar and $\gamma$-ray burst spectra give 
+ionization constraints at the tail end of reionization 
+($z\la7$, \citealt{fan_et_al2006, mcgreer_et_al2015}), but these features 
+saturate at low neutral fractions
+($x_{\rm HI} \la 10^{-4}$). Measurements of galaxy populations in
+deep {\it Hubble Space Telescope} observations 
+have pinned down the bright end of the galaxy luminosity function at $z \la 8$
+\citep{schenker_et_al2013, bouwens_et_al2015} and are pushing deeper
+(e.g.~\citealt{mcleod_et_al2015}), but producing a consistent ionization history
+requires broad extrapolations to
+lower-mass galaxies and ad hoc assumptions about the escape fraction of
+ionizing photons and the faint-end cutoff of ionizing galaxies
+\citep{robertson_et_al2015, bouwens_et_al2015_reion}. 
+Similarly, deducing the ionization state of the IGM from quasar proximity zones
+\citep{carilli_et_al2010, bolton_et_al2011, bosman_becker2015} and the
+demographics of Ly-$\alpha$ emitting galaxies \citep{fontana_et_al2010,
+schenker_et_al2012, treu_et_al2012, dijkstra_et_al2014} is uncertain and
+highly model-dependent.
+
+
+As shown in Figure~\ref{fig:IonHist},
+existing probes are limited in
+their ability to constrain reionization, and will be for the foreseeable future.
+\textbf{HERA's intellectual merit} centers on using 
+another complementary probe --- the 21\,cm ``spin-flip" transition of neutral hydrogen
+--- to bring transformative new capabilities in this area.
+As potentially the most powerful measurement of our Cosmic Dawn, the ``{\it
+[NWNH] panel concluded that to explore the discovery area of the epoch of
+reionization, it is most important to develop new capabilities to observe
+redshifted 21\,cm \HI emission, building on the legacy of current projects and
+increasing sensitivity and spatial resolution to characterize the topology of
+the gas at reionization.}"
+
+\vspace{-20pt}
+\subsection{Primary Scientific Objective: Precision Constraints on Reionization}
+\vspace{-5pt}
+\label{sec:EoRPowerSpectra}
+
+
+\noindent HERA's top science goal is to transform our understanding of the first stars, galaxies, 
+and black holes, and their role in driving reionization. 
+Through power-spectral measurements of the 21\,cm line of hydrogen in the primordial IGM,
+HERA directly constrains the topology and evolution of reionization, 
+opening a unique window into the complex astrophysical interplay between the 
+first luminous objects and their environments.
+Using cosmological redshift, HERA can associate 
+the signal at each observing frequency with emission time (or distance) to determine both the time evolution
+and three-dimensional spatial structure of ionization in the IGM.
+This 3D structure encodes information about the clustering properties of galaxies,
+allowing us to distinguish between models, even if they predict the same ionized fraction. 
+With a new telescope optimized for 3D power-spectral measurements and with support for theoretical
+modeling efforts, the HERA program will advance our understanding of early galaxy formation and cosmic reionization.
+
+
+\begin{wrapfigure}{L}{0.49\textwidth}
+\vspace{-15pt}
+\centering
+    \includegraphics[width=0.49\textwidth,clip]{plots/sensitivity_wideband.pdf}
+  \vspace{-28pt}
+  \caption{ 1$\sigma$ thermal noise errors on $\Delta^2(k)$, the 21\,cm power spectrum, at $k\!=\!0.2$\,$h$\,Mpc$^{-1}$ (the dominant error at that $k$)
+with 1080 hours of integration (black)
+compared with various heating and reionization models (colored).}
+	\label{fig:Sensitivities}
+  \vspace{-10pt}
+\end{wrapfigure}
+
+As described in \S\ref{sec:lessons}, HERA builds on the advances of first-generation
+21\,cm EoR experiments led by HERA team members, particularly 
+the Donald C. Backer Precision Array for Probing the Epoch of Reionization (PAPER; \citealt{parsons_et_al2010}),
+the Murchison Widefield Array (MWA; \citealt{bowman_et_al2012,tingay_et_al2013}),
+the MIT EoR experiment (MITEoR; \citealt{zheng_et_al2014}) and the Experiment to Detect the Global EoR Step (EDGES; \citealt{bowman_rogers2010}).  
+Efforts by members of the HERA team
+have produced the first astrophysically constraining upper limits on the 21\,cm EoR power spectrum, 
+providing evidence for significant heating in the IGM prior to reionization \citep{parsons_et_al2014,ali_et_al2015,pober_et_al2015}.
+However, current experiments cannot expect more than marginal detections of the EoR signal. 
+Figure~\ref{fig:Sensitivities} compares telescope sensitivities as a function of redshift to models of 
+the evolving, spherically averaged 21\,cm EoR power spectrum $\Delta^2 (k) \equiv k^3 P(k) / 2 \pi^2$.  In contrast to current experiments,
+HERA's optimized design and collecting area make it capable of
+high-significance detections of virtually any realistic reionization scenario, even using only currently demonstrated foreground
+mitigation strategies (see Table~\ref{tab:signif}). The development of enhanced foreground modeling and subtraction further improve the achievable constraints.
+
+
+\begin{SCtable}
+\caption{\hspace{-1.2mm}: Predicted SNRs of 21\,cm experiments for an EoR model with 50\% ionization at $z=9.5$, with 1080 hours observation, integrated over a $\Delta z$ of $0.8$.
+Foreground avoidance represents an analysis comparable to \cite{ali_et_al2015}, whereas foreground modeling allows signifcantly more $k$ modes of the cosmological signal to be recovered.}
+\small
+ \centering
+ \begin{tabular}{c||r||r|r} 
+%\begin{deluxetable}{c||r||r|r}
+%\tabletypesize{\small}
+%\tablecaption{\small
+\hline
+%\startdata
+Instrument & \shortstack{Collecting \\ Area (m$^2$)} & \shortstack{Foreground \\Avoidance} & \shortstack{Foreground \\Modeling} \\
+\hline
+PAPER & 1,188 & 0.77$\sigma$ & 3.04$\sigma$ \\
+MWA & 3,584 & 0.31$\sigma$ & 1.63$\sigma$ \\
+LOFAR NL Core & 35,762 & 0.38$\sigma$ & 5.36$\sigma$ \\
+%\textbf{HERA-127} & \textbf{19,500} & \textbf{10.88} & \textbf{35.65} \\
+\textbf{HERA-350} & \textbf{53,878} & \textbf{23.34$\sigma$} & \textbf{90.97}$\boldsymbol{\sigma}$ \\
+SKA1 Low Core & 416,595 & 13.4$\sigma$ & 109.90$\sigma$
+%\enddata
+\end{tabular}
+%\Caption{-0.1in}{0.99}{-0.1in}
+\hspace{-0.1in}
+\label{tab:signif}
+\end{SCtable}
+
+\begin{wrapfigure}{R}{0.56\textwidth}
+\vspace{-15pt}
+\centering
+    \includegraphics[width=0.56\textwidth,clip]{plots/LikelihoodContours_smaller_avoid_All3_no_table}
+  \vspace{-20pt}
+  \caption{Projected likelihood contours from an MCMC analysis for astrophysical parameters of reionization. Model parameters are $T_\textrm{vir}^\textrm{min}$ (minimum virial temperature of ionizing galaxies); $R_\textrm{mfp}$ (mean free path of ionizing photons in HII regions); and $\zeta_0$ (ionizing efficiency of galaxies).  Also shown are constraints on the derived ionizing escape fraction, $f_\textrm{esc}$. }
+	\label{fig:paramConstraints}
+  \vspace{-10pt}
+\end{wrapfigure}
+ 
+HERA's 21\,cm measurements can be used in conjunction with our semi-analytic models to constrain the ionization history. 
+The red band in Fig.~\ref{fig:IonHist} shows the forecasted 95\% confidence region derived from HERA data after marginalizing over astrophysical and cosmological parameters.
+Figure~\ref{fig:paramConstraints} shows the results of a Markov Chain Monte
+Carlo (MCMC) pipeline for fitting models to 21\,cm power spectrum data \citep{greig_and_mesinger2015}, which we have conservatively limited to the range $8 < z < 10$ (although in practice a much broader bandwidth will be available; see Table \ref{tab:BasicParameters}).
+Based on the excursion-set formalism of
+\citet{furlanetto_et_al2004} and the 21cmFAST code \citep{mesinger_et_al2011},
+this code models the astrophysics of
+reionization with three free parameters (see Figure~\ref{fig:paramConstraints} for details). 
+While the existing experiment with the most collecting area, 
+the LOw Frequency ARray (LOFAR; \citealt{yatawatta_et_al2013}),
+faces large
+uncertainties, 
+HERA's tight constraints on these parameters are comparable
+to what could be achieved with the SKA.  Such results would be valuable for
+informing the design and science case of the low-frequency SKA, highlighting areas where the SKA has unique capability.
+Additionally, HERA's constraints enable principal component parameterizations of the
+sky-averaged $21\,\textrm{cm}$ signal measurements pursued by experiments such as EDGES, increasing their signal-to-noise and thus their science return \citep{liu_parsons2015}.
+
+
+\vspace{-20pt}
+\subsection{Secondary Scientific Objectives}%\\Precision Cosmology, Reionization Imaging, and High-$z$ IGM X-Ray Heating Science}
+\vspace{-5pt}
+
+
+\startsquarepar\emph{\textbf{Precision Cosmology.}}
+\label{sec:tau}
+By advancing our understanding of reionization astrophysics, HERA improves CMB constraints on 
+fundamental cosmological parameters by
+removing the optical depth
+$\tau$ as a nuisance parameter. HERA breaks the degeneracy between the
+constraints on $\tau$ and the sum of the neutrino masses $\sum m_\nu$, which has
+been identified as a potential problem for Stage 4 CMB lensing experiments. A
+HERA-informed estimate of $\tau$ enables CMB lensing experiments to achieve a
+$0.012\,\textrm{eV}$ error on $\sum m_\nu$ \citep{liu_et_al2015}. This would
+represent a $\sim$5$\sigma$ cosmological detection of the neutrino masses even
+under the most pessimistic assumptions
+% that their sum is the minimum value of $0.058\,\textrm{eV}$ 
+still allowed by neutrino oscillation \stopsquarepar
+
+\begin{wrapfigure}{R}{0.50\textwidth}
+\centering
+\vspace{-5pt}
+    \includegraphics[width=0.50\textwidth,clip]{plots/sigmaTau.pdf}
+  \vspace{-24pt}
+\caption{Likelihood contours ($68\%$ and $95\%$) for $\sigma_8$ and $\tau$ using \emph{Planck} constraints (blue) and 
+adding HERA data (red). 
+%Light and heavy contours signify $68\%$ and $95\%$ confidence regions, respectively. 
+The $21\,\textrm{cm}$ constraints break the CMB degeneracy between the amplitude of density fluctuations and the optical depth, improving constraints on both.}
+	\label{fig:sigma8Tau}
+ \vspace{-10pt}
+\end{wrapfigure} 
+
+\noindent experiments
+\citep{allison_et_al2015}, making HERA key to our understanding of neutrino
+physics. HERA's estimate of $\tau$ would also break the degeneracy between
+$\tau$ and the amplitude of matter fluctuations (expressed in Fig.
+\ref{fig:sigma8Tau} as $\sigma_8$) that arises when using only
+CMB data. HERA effectively reduces error bars on $\sigma_8$ by more
+than a factor of three \citep{liu_et_al2015}, potentially elucidating
+current tensions between cluster cosmology constraints and those from primary
+CMB anisotropies.
+
+%\subsubsection{First 21\,cm Images from the Reionization Epoch}
+
+
+
+\emph{\textbf{First Images of the Reionization Epoch.}}
+\label{sec:imaging}
+In addition to measuring the power spectrum, HERA has sufficient 
+sensitivity to directly image the IGM during reionization,
+and will observe a 1440 deg$^2$ stripe, comparable to future WFIRST
+large area near-IR surveys.
+ After 100 hours on a
+single field (achievable in 200 nights), HERA reaches a surface brightness 
+sensitivity of 50 $\mu$Jy/beam (synthesized beam FWHM $\sim$ 24$'$) compared 
+to the brightness temperature fluctuations of up to 400 $\mu$Jy/beam in typical 
+reionization models (see Fig.~\ref{fig:LSS}). From the standpoint of sensitivity alone, HERA is capable of 
+detecting the brightest structures at $z=8$ with SNR $>$ 10. Additionally, the design 
+of HERA places it in a unique position to directly explore calibration techniques
+(e.g. redundant calibration, \citealt{liu_et_al2010}), while retaining a high quality 
+point spread functions for imaging and identifying foregrounds. Leveraging the expertise gained 
+through both precursor strategies, HERA will yield exceptionally high dynamic range
+images.
+
+%\subsubsection{The 21\,cm Signal in the Pre-Reionization Epoch}
+
+%\begin{wrapfigure}{R}{0.5\textwidth}
+\begin{figure}[b!]
+\centering
+\vspace{-15pt}
+    %\includegraphics[width=.5\textwidth,clip]{plots/imaging/HERA_z8_SNR_annotated_2015.png}
+    \includegraphics[width=1.0\textwidth,clip]{plots/imaging/HERA_FoV_w_strips.png}
+  \vspace{-20pt}
+\caption{\footnotesize 
+HERA will observe a 1440 deg$^2$ stripe centered near $\delta = -30^\circ$. HERA can measure the ionization state around galaxies in, e.g., the GOODS-South field that contains a third of all known $z\!>\!8$ galaxies. HERA's primary imaging data product to the community will be deep cubes along the HERA stripe suitable for cross-correlation.
+\label{fig:LSS} }
+\vspace{-10pt}
+\end{figure}
+%  \vspace{-10pt}
+%\end{wrapfigure}
+
+\emph{\textbf{Pre-Reionization Heating.}}
+\label{sec:EoX} 
+Prior to reionization, the 21\,cm signal is a sensitive probe of the first
+luminous sources and IGM heating mechanisms. First stars are expected to form
+at $z \sim 25-30$ and their imprint on the 21\,cm signal is expected to be
+sensitive to the halo mass where they are formed \citep{mesinger_et_al2015}.
+The IGM is then expected to be heated by first
+generation X--ray binaries
+\citep{furlanetto_et_al2006_global,pritchard_et_al2007,mesinger_et_al2013} or
+by the hot interstellar medium produced by the first supernovae
+\citep{pacucci_et_al2014}, although the heating timing and magnitude is still
+very much debated \citep{fialkov_et_al2012}. Dark matter annihilation
+\citep{evoli_et_al2014} could also inject energy in the IGM, leaving its
+imprint in the 21\,cm signal.
+ 
+With support from the Moore Foundation to develop feeds sensitive down to 50\,MHz, HERA will probe the IGM prior to
+reionization and constrain the sources of heating, obtaining, in the case of
+X--ray heating, percent-level constraints on the efficiency with which star-forming baryons
+produce X-rays \citep{ewall-wice_et_al2015}. While the observational and analytical state of the art of pre-reionization 21\,cm science is not as advanced as for the EoR \citep{ewall-wice_et_al2016-EoXLimits}, the risk of lower-frequency observing is borne by the Moore Foundation.
+Lower
+frequency observations also test feedback
+mechanisms that interact with low-mass halos at high redshifts
+\citep{Iliev_et_al2007,Iliev_et_al2012,ahn_et_al2012}.
+Such constraints, while interesting in their own right, also reduce
+the susceptibility of the aforementioned $21\,\textrm{cm}$-derived $\tau$
+constraints to uncertainties in high-redshift physics \citep{liu_et_al2015}, especially if they are 
+combined with upcoming or proposed measurements of 
+the pre-reionization sky-averaged spectrum \citep{fialkov_and_loeb2016}. Additionally, they may be crucial to a correct
+interpretation of kinetic Sunyaev-Zel'dovich effect constraints on reionization
+from the CMB \citep{park_et_al2013}. The high redshift probe of
+structure afforded by the low frequency $21\,\textrm{cm}$ measurements will
+permit some of the most direct observations of hypothesized suppressions of
+small-scale structure
+\citep{dalal_et_al2010,tseliakhovich_et_al2011,fialkov_et_al2012} arising from
+predicted supersonic relative velocities between dark matter and baryonic gas
+\citep{tseliakhovich_and_hirata2010}. No other electromagnetic probe can provide direct observations of this
+epoch. 
+
+
+\vspace{-20pt}
+\subsection{Broader Scientific Impact}
+\label{subsec:broader_science}
+\vspace{-5pt}
+
+
+\noindent With unprecedented sensitivity at this frequency range, HERA can deliver much more than its core 21\,cm science. 
+Some of HERA's broader science impacts derive directly from the public data products HERA delivers.  Other
+areas of impact may require additional hardware or software that HERA can host at no extra risk. 
+In this respect, HERA serves as a ``platform" for additional science programs with external funding.
+The Moore Foundation's support of HERA feed development and data analysis targeting the pre-reionization science described in \S\ref{sec:EoX}
+is a prime example of how we envision this functioning.
+Below, we list examples of the broader science that HERA can deliver.
+
+\emph{\textbf{Cross-Correlations with Other Reionization Probes.}}
+\label{sec:crossCorr}
+HERA's public data provide new opportunities for cross-correlation studies.
+Cross-correlation between HERA 21\,cm images and other high-redshift probes
+(e.g. JWST; WFIRST; CMB maps; CO, CII, and Ly-$\alpha$ intensity mapping) 
+can provide an independent confirmation of the 21\,cm power spectrum
+\citep[i.e.][]{lidz_et_al2009,dore_et_al2014,silva_et_al2015,vrbanec2016} and enable rich new studies of
+the interaction between galaxies and their ionization environment. 
+In particular, cross-correlating 21\,cm with galaxy surveys can measure the characteristic bubble size around galaxies of
+different luminosities \citep{lidz_et_al2009} and help separate the degeneracy
+between the fraction of photons escaping the galaxies and the
+total number of ionizing photons produced \citep{zackrisson2013}.
+
+HERA is placed in a unique position to enable such cross-correlation: the GOODS-South field---one of the most panchromatically studied regions of the sky, the site of the Hubble UDF, and home to over a third of all known $z>9$
+galaxies---lies in its field of view. HERA's images of the IGM can provide environmental context to galaxy surveys through identification of
+ionized bubbles \citep{malloy_lidz2013}, or in a more statistical sense as
+described in \cite{beardsley_et_al2015}. 
+
+
+\textbf{\emph{Searching for Exoplanetary Radio Bursts.}}
+\label{sec:exoplanets}
+HERA could be an powerful tool in the search for bright, highly polarized auroral bursts
+from exoplanets %due to the electron cyclotron maser instability 
+\citep{treumann2006,hallinan_et_al2015}. These
+distinctive, coherent bursts occur periodically at the planetary
+rotation rate, which cannot otherwise be measured. 
+A burst from a terrestrial planet could point toward
+habitability, since it implies a powerful magnetic field
+protecting the atmosphere and perhaps the biosphere from energetic stellar wind
+particles \citep{tarter_et_al2007}. HERA's sensitivity, large FoV, long campaigns, and precise calibration are all well-suited
+for discovering exoplanetary radio bursts from Jupiter-like planets out to 25~pc. Many well studied exoplanetary systems within that distance are in the HERA stripe, including Fomalhaut, Gl 667 C, Gl 433, HD 147513, and Gl 317.
+
+
+\textbf{\emph{Fast Radio Burst Followup.}}
+\label{sec:FRBs}
+Fast Radio Bursts (FRB) are millisecond-long radio flashes whose origin has remained a great enigma ever since their discovery \citep{2007Sci...318..777L}. 
+If equipped with a suitable backend, HERA could be triggered by nearby, higher-frequency telescopes for FRB followup, saving baseband data and thus full sensitivity to all dispersion measures.
+Bursts like that discovered by \citet{masui_et_al2015}, the lowest frequency
+FRB detection to date, should be seen hourly by HERA at 5--10$\sigma$. %(including the effects of scattering)
+ Observations at HERA frequencies are very sensitive to the physics of
+the intervening medium, particularly deviations from $\lambda^2$
+dispersion. Detecting deviations would rule out broad classes of models and could indicate whether FRBs are at cosmological distances.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DATA PRODUCTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-18pt}
+\section{Data Products and Community Support}
+\vspace{-5pt}
+\label{sec:dataproducts}
+
+\noindent This proposal supports a full data analysis effort, culminating in science publications
+and the release of data products.  HERA's data products, hosted by NRAO public servers, 
+are intended to support a variety of 
+science objectives of interest to the broader astronomical community. They include:
+\begin{itemize}[noitemsep,nolistsep,leftmargin=11pt]
+\item Calibrated, averaged visibility data, with and without foreground filtering. Such data can be used by the community to apply alternative power spectrum estimation or foreground mitigation techniques and independently re-derive the 21\,cm power spectrum;
+\item Foreground-subtracted image cubes of high-redshift 21\,cm emission for multiwavelength EoR studies via cross--correlations (see Section~\ref{subsec:broader_science});
+\item Polarized image cubes without foreground subtraction, including a catalog of source size, intensity, spectral slope, and polarization.
+In addition to other data mining efforts, HERA's brightness sensitivity makes such images 
+useful for studying diffuse radio halos in nearby galaxies, diffuse emission
+in local galaxy clusters, and ISM turbulence; 
+\item An all-sky polarized sky model spanning $50\,\textrm{MHz}$ to $800\,\textrm{GHz}$. 
+HERA will work with a NASA-funded effort led by HERA team members to
+update \citet{deoliveira2008} with data from HERA and other experiments at higher frequencies,
+enabling more accurate foreground simulations for 
+sky--averaged and interferometric 21\,cm signal measurements and improved models of the CMB synchrotron foreground; and
+\item Frequency-averaged images from each night's observing.  These ``snapshots" validate system performance and enable
+the detection of long-term variability in low-frequency sources \citep[e.g., refractive scintillation of pulsars;][]{stinebring_et_al2000}.
+\end{itemize}
+
+\noindent Higher time/frequency cadence data sets will not be hosted publicly in a continuous fashion 
+due to data transfer and storage limitations.
+Access to raw HERA observations is provided upon request via network access after a 12-month proprietary period.  
+Large requests or requests for additional data products will be supported on a best effort basis.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LESSONS LEARNED
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\vspace{-18pt}
+\section{Lessons Learned for Designing a Sensitive, Robust 21\,cm Experiment} \label{sec:lessons}
+\vspace{-5pt}
+
+\noindent The past three
+years have seen deep EoR observations with PAPER, the MWA, 
+the Giant Metrewave Radio Telescope (GMRT; \citealt{paciga_et_al2013}), and LOFAR.
+PAPER and the MWA have produced progressively deeper limits
+\citep{dillon_et_al2015,parsons_et_al2014,ali_et_al2015}, with PAPER
+yielding the first meaningful constraints on the 21\,cm spin temperature during reionization
+(Fig. \ref{fig:limits}).
+The inherent challenge of simultaneously meeting stringent sensitivity requirements 
+while suppressing foregrounds $\sim5$ orders of magnitude
+brighter than the 21\,cm signal make this progress all the more remarkable.  
+To achieve this, HERA team members have refined and improved 
+techniques spanning all aspects of the experimental process, from how we
+calibrate our data \citep{zheng_et_al2014, jacobs_et_al2016, barry_et_al2016}, to how we understand foreground contamination
+\citep{moore_et_al2013,moore_et_al2016,thyagarajan_et_al2015a,pober_et_al2016},
+to how we design the interferometer itself \citep{parsons_et_al2012a,dillon_parsons2016}.
+In this section, we discuss how the legacy of these first generation
+21\,cm experiments inform critical aspects of HERA's design.
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=.56\textwidth]{plots/current_limits.pdf}
+	\includegraphics[width=.43\textwidth]{plots/constraints_proposal.pdf}
+	\vspace{-20pt}
+	\caption{Left: The current best published $2\sigma$ upper limits on the 21cm power spectrum, $\Delta^2(k)$, (solid symbols represent analyses led by HERA collaborators) compared to 21cmFAST-generated models at $k=0.2$\,$h$\,Mpc$^{-1}$. 
+Analysis is still underway on PAPER and MWA observations that approach their projected 
+full sensitivities (see Fig.~\ref{fig:Sensitivities}); 
+HERA can deliver sub-$\text{mK}^2$ sensitivities.
+Right: The \citet{ali_et_al2015} limit at $z=8.4$ excludes the entire gray shaded area corresponding to a cold IGM \citep{pober_et_al2015}.  The color scale shows the power spectrum amplitude at $k = 0.25~h{\rm Mpc}^{-1}$ for a given spin temperature and neutral fraction.  Constraints are weaker if the (currently unknown) neutral fraction at $z=8.4$ is very high or low, as the 21\,cm signal is brightest during the middle of reionization.}
+	\vspace{-10pt}
+	\label{fig:limits}
+	\label{fig:IGMtemperatureConstraints}
+\end{figure}
+
+\begin{figure}[t]
+	\centering
+	\vspace{-10pt}
+	\includegraphics[width=1\textwidth,clip]{plots/Josh_Window_Data_Cartoon_v2.pdf}
+	\vspace{-25pt}
+	\caption{Foregrounds are a primary challenge facing 21\,cm cosmology experiments. 
+HERA leverages a ``wedge'' in the cylindrically-averaged ($\mathbf{k}$ is broken into $k_\|$ and $k_\perp$) power spectrum (center panel; \citealt{dillon_et_al2015}). Smooth-spectrum foregrounds (right panel) $\sim$5 orders of magnitude brighter than fiducial EoR models (left panel; \citealt{mesinger_et_al2011}) create the ``wedge'' when they interact with the interferometer's chromatic response. By avoiding foregrounds, PAPER has placed limits within an order
+of magnitude (in mK) of these models \citep{ali_et_al2015} and show the ``EoR Window'' to be foreground-free.
+HERA's dish and configuration optimize wedge/window isolation and direct sensitivity to low-$k_\perp$ modes where EoR is brightest.
+}	\label{fig:wedge}
+\vspace{-10pt}
+\end{figure}
+
+Perhaps the most important advance informing HERA's design is a
+refined understanding of how smooth-spectrum foregrounds interact
+with instrument chromaticity to produce a characteristic ``wedge" of
+foreground leakage in Fourier space (see Fig.~\ref{fig:wedge}), 
+outside of which the 21\,cm signal dominates.
+Through theoretical and observational work
+\citep{Datta_2010,morales_et_al2012,parsons_et_al2012b,vedantham_2012,thyagarajan_et_al2013,hazelton_et_al2013,pober_et_al2013b,liu_et_al2014a,liu_et_al2014b},
+we have learned how the boundary between the wedge and our ``EoR window" is determined by the separation between antennas,
+signal reflections within antennas, and the angular response of the antenna beam.  Deep integrations also show us
+that, to the limits of current sensitivity, foreground emission is absent outside of the wedge; it can only 
+appear there through instrumental leakage \citep{parsons_et_al2014,ali_et_al2015,moore_et_al2016,kohn_et_al2016}.
+Thus, to open the widest possible window for EoR measurements, HERA must use close-packed antennas that
+minimize signal reflections and deliver significant forward gain relative to their horizon response.
+Tests with prototype HERA antennas (Figs. \ref{fig:orbcommexptandbeammap} and \ref{fig:reflectometry}, discussed in \S\ref{sec:antenna})
+indicate that a moderately large parabolic dish with a short focal height can meet these requirements
+\citep{ewall-wice_et_al2016-EoXLimits,neben_et_al2016,thyagarajan_et_al2016}.
+
+
+
+PAPER adopted a foreground mitigation strategy based largely
+on filtering out the wedge in frequency domain (so-called ``delay filtering"; \citealt{parsons_et_al2012b}).  
+By reducing the need
+for image-domain foreground modeling, this approach allowed PAPER to switch to a grid-based antenna layout that
+enhanced sensitivity toward fewer Fourier modes and facilitated calibration
+based on the ``redundancy" of different antenna pairs measuring the same sky modes \citep{zheng_et_al2014}.
+Combined, redundancy and delay filtering provide a robust, inexpensive, and demonstrably successful solution 
+to the foreground problem.  
+Yet PAPER's lack of imaging support and its uneven $uv$ sampling 
+leave it with limited diagnostic capability, particularly for direction-dependent systematics
+such as polarization leakage from Faraday-rotated emission \Mycitep{moore_et_al2013}.
+While concern over such effects has decreased markedly since discovering that
+intrinsic point source polarization is lower than previously thought
+\citep{asad_et_al2015} and that variable Faraday rotation through the
+ionosphere averages down the polarized signal over long observing seasons
+\Mycitep{moore_et_al2016}, direction-dependent beam effects remain an area of interest.
+The MWA's image-based calibration and foreground subtraction strategy provides complementary
+capabilities. Imaging with subtraction, while still under development as a viable foreground strategy,
+can increase sensitivity by recovering more modes of the cosmological signal (see
+Table~\ref{tab:signif}) and help address systematic errors rooted
+in the image domain.  HERA's antenna configuration---shown in Figure \ref{fig:arrayConfig} and discussed in \S\ref{sec:arrayConfig}---emphasizes
+the proven approaches of redundant calibration and delay filtering, while simultaneously
+increasing the extent and density of $uv$ sampling for high-fidelity imaging.  
+
+Despite progress, the fact remains that the 21\,cm EoR signal is intrinsically very faint; making a detection requires a
+large instrumental collecting area and a long, dedicated observing campaign.
+Although published PAPER and MWA results (Fig. \ref{fig:limits}) do not yet include observations 
+at full sensitivity that are still being analyzed (e.g. Fig. \ref{fig:Sensitivities}), 
+it is clear already that these instruments lack the sensitivity
+to make a conclusive detection (see Table~\ref{tab:signif}). 
+HERA addresses this shortcoming with a dish element that delivers a much larger collecting area 
+while retaining the necessary characteristics for both proven and forward-looking foreground removal strategies.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HERA PROJECT DESIGN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-18pt}
+\section{HERA Project Design} \label{sec:design}
+\vspace{-5pt}
+
+\noindent As described in the previous section, we have applied 
+critical insights from first generation 21\,cm EoR experiments to define
+the requirements for HERA---an instrument that ensures foregrounds remain bounded
+within the wedge while \emph{delivering the sensitivity for
+high-significance detections of the 21\,cm reionization power spectrum with
+established foreground filtering techniques} 
+\citep{pober_et_al2014,greig_and_mesinger2015}.
+In this section, we summarize key features of the HERA design (see Table~\ref{tab:BasicParameters}) 
+and system architecture (see Fig.~\ref{fig:overallBlockDiagram}).
+This architecture
+directly inherits from the PAPER and MWA experiments; HERA begins by reusing the
+analog, digital, and real-time processing systems deployed for PAPER-128.  As HERA develops, this
+architecture is incrementally upgraded to improve performance and add features while simultaneously
+addressing issues of modularity and scalability.  As with PAPER, HERA proceeds in stages of development,
+with annual observing campaigns driving a cycle of development, testing, system integration, calibration, and analysis.
+This cycle ensures that HERA's instrument is always growing, that systematics are being found and eliminated at the
+earliest build-out stages, that data analysis pipelines are tested and debugged while data volumes are smaller,
+and that HERA is always producing high quality science.
+
+\begin{table}[t]
+\small
+\begin{center}
+\begin{tabular}{l | l}
+\multicolumn{1}{c}{\emph{\textbf{Instrument Design Specification}}} & \multicolumn{1}{c}{\emph{\textbf{Observational Performance}}}\\
+\hline
+\textbf{Element Diameter:} 14\,m & \textbf{Field of View:} 9\arcdeg \\
+\textbf{Minimium Baseline:} 14.6\,m & \textbf{Largest Scale:} 7.8\arcdeg\\
+\textbf{Maximum Core Baseline:} 292\,m & \textbf{Core Synthesized Beam:} 25\arcmin\\
+\textbf{Maximum Outrigger Baseline:} 876\,m & \textbf{Outrigger Synthesized Beam:} 11\arcmin\\
+\textbf{Frequency Range:} 50--250\,MHz & \textbf{Redshift Range: $4.7 < z < 27.4$} \\
+\textbf{Frequency Resolution:} 97.8\,kHz & \textbf{LoS Comoving Resolution:} $1.7$\,Mpc (at $z=8.5$)\\
+\textbf{Survey Area:} $\sim 1440$ deg$^2$ & \textbf{Comoving Survey Volume:} $\sim 150$\,Gpc$^3$ \\
+$\mathbf{T_\textbf{sys}}$: $100 + 120 (\nu/\rm{150~MHz})^{-2.55}$ K & \textbf{Sensitivity after 100\,hrs:} 50 $\mu \rm{Jy}~\rm{beam}^{-1}$  \\
+\hline
+\end{tabular}
+\Caption{-0.1in}{0.99}{-0.4in}{HERA-350 design parameters and their observational consequences. Angular scales computed at 150\,MHz.}
+\label{tab:BasicParameters}
+\vspace{.2in}
+\end{center}
+\end{table}
+
+
+\begin{figure}[h]
+	\centering
+	\vspace{-10pt}
+	\includegraphics[width=1\textwidth]{plots/HERA_simplified_high_level_block_diagram.pdf}
+	\vspace{-20pt}
+	\caption{HERA's signal path.  Front-end amplifiers at the antenna feed drive signals on short coaxial cables to 
+field nodes.  Nodes contain post-amplifiers and Smart Network ADC Processor (SNAP) boards that digitize, channelize,
+and packetize data for optical transmission in 10 Gb Ethernet format.  Optical fibers are aggregated in a field container
+onto a 10 km fiber bundle connecting to the Karoo Array Processing Building, where signals are cross-multiplied
+in the X processor.  After correlation, visibilities are stored by the Librarian, compressed and redundantly calibrated
+by the Real-Time Processor, and transmitted over the network to clusters for storage and analysis.  Final products are
+hosted on public-facing NRAO servers, with a web interface for selecting and downloading data.}
+	\label{fig:overallBlockDiagram}
+	\vspace{-5pt}
+\end{figure}
+
+
+
+
+\vspace{-20pt}
+\subsection{Antenna Element}
+\label{sec:antenna}
+\vspace{-5pt}
+
+\noindent The novel design of HERA's antenna element (Figs. \ref{fig:HERApictures} and \ref{fig:orbcommexptandbeammap}), now extensively field-tested with MSIP seed funding, 
+is one of the critical advances that enables HERA to achieve its science
+goals cost-effectively.  The 14-m fixed zenith-pointing parabolic dish strikes an optimal
+balance between sensitivity and systematics.  The large collecting area of a
+HERA element yields nearly 5 times the sensitivity of an MWA tile and more
+than 20 times that of a PAPER element, but it does so without substantially
+degrading our ability to isolate and remove foreground emission on the basis of
+spectral smoothness (Fig. \ref{fig:reflectometry}, right panel).  As shown in
+\Mycitet{parsons_et_al2012b}, the amplitude and timescale of signal reflections
+relates directly to the leakage of smooth-spectrum foregrounds into regions of Fourier space 
+used to measure reionization.
+To facilitate foreground filtering, HERA's antenna element is designed to suppress reflections at long time delays.
+
+\begin{figure}[tb]
+	\vspace{-5pt}
+	\begin{tabular}{ll}
+	\begin{minipage}{4.2in}
+\includegraphics[width=2.1in]{plots/ref_dipole_and_hera_dish.jpg}
+\includegraphics[width=2.1in]{plots/orbcomm_dish_beam_map_530cm_feed.pdf}
+	\end{minipage} & 
+	\begin{minipage}{2.05in}
+	\caption{Left: The first of three prototype dishes at NRAO--Green Bank, used for measuring beam frequency structure with reflectometry and the beam pattern at 137\,MHz by comparing satellite signals to the reference dipole in the foreground \citep{neben_et_al2016}. Right: The measured EW power pattern plotted with dashed lines marking zenith angles of 20$^\circ$, 40$^\circ$, 60$^\circ$, 80$^\circ$.} 
+	\label{fig:orbcommexptandbeammap}
+	\end{minipage}
+	\end{tabular}
+	\vspace{-15pt}
+\end{figure}
+
+\begin{figure}[tb]
+	\centering
+    \includegraphics[width=0.49\textwidth]{plots/s11_compare_msip.pdf}
+	%\includegraphics[width=0.49\textwidth]{plots/compare_kernels_msip_subband.pdf}
+\includegraphics[width=0.5\textwidth]{plots/ps1d_with_delay_kernel.pdf}
+	\vspace{-25pt}
+	\caption{Left: Electromagnetic simulations (black; \citealt{ewallwice_et_al2016}) of the response of the HERA dish as a function of time delay, $\tau$,
+       agree with field measurements (grey; \citealt{patra_et_al2016}). 
+Right: Modeled foreground power spectra with (green) and without (blue) the antenna chromaticism over a 10\,MHz subband centered at $z=7.5$. The spectral smoothness of the dish enables foreground isolation below the level of a fiducial reionization signal (black) for most $k_{\parallel}$ modes, yielding percent-level constraints on model parameters.}
+	\label{fig:reflectometry}
+	\vspace{-10pt}
+\end{figure}
+
+As shown in Fig.~\ref{fig:reflectometry}, HERA's element meets this requirement in
+reflectometry tests, performing comparably to the PAPER element.  The
+relatively short (4.5\,m) focal height of the parabolic dish 
+minimizes the timescale of feed-dish reflections while maintaining the feed's
+illumination of the dish.  HERA's feed design is based on the PAPER sleeved
+dipole element, inverted above a backplane, with a skirting cylinder to
+improve symmetry in the polarized beam response patterns.  Figure
+\ref{fig:orbcommexptandbeammap} shows the beam pattern measured at 137 MHz with a beam mapping
+system using the ORBCOMM satellite network \Mycitep{neben_et_al2016}.  Results
+indicate an effective per-element collecting area of 93\,m$^2$, compared with the
+theoretical maximum Airy response of 155 m$^2$.  The measured primary beam is
+consistent with simulations at the 0.1\% to 0.5\% level, with a full width at
+half maximum of $\sim$$10^\circ$, and a first sidelobe at -20 dB \citep{ewallwice_et_al2016,neben_et_al2016,patra_et_al2016,thyagarajan_et_al2016}.
+Feed-to-feed coupling between adjacent antennas has been measured to be below -50 dB, indicating
+that mutual coupling will not be problematic.
+
+With observing wavelengths of 1.5 to 3 m, meeting the required accuracy
+in placing the components of HERA's dish is straightforward.
+Dish centers are fixed
+by a concrete hub placed with final surveyed accuracy of $\sim$10 cm.  These
+hubs constrain radial PVC spars, tensioned into approximate parabolas against a
+rim supported by utility poles.  The resulting faceted paraboloid has
+a measured RMS surface accuracy of 3 cm, which is well within the 0.1$\lambda$ tolerance for
+coherent phasing.  Feed placement relative to the dish is the most stringent requirement, with
+a tolerance of 5 cm.  This placement is ensured by spring-tensioned Kevlar lines attached to
+three utility poles at the dish rim and a 165-lb tensioning down to the concrete hub with
+a fixed length line that ensures a correct focal height.  With 19 dishes constructed in South Africa
+and 2 in Green Bank, we are confident in the ability of our trained field teams to construct HERA
+elements to specification.
+
+
+\vspace{-20pt}
+\subsection{Array Configuration}
+\label{sec:arrayConfig}
+\vspace{-5pt}
+
+\noindent HERA's 320 core elements are arranged in a compact hexagonal grid, split into three displaced segments 
+to cover the $uv$-plane with sub-element sampling density (see Fig.~\ref{fig:arrayConfig}). The dense core maximizes 
+sensitivity on the short baselines for which PAPER's proven foreground filtering strategy works best.
+The core is supplemented by 30 additional outrigger elements 
+to tile the $uv$-plane with instantaneously complete sub-aperture 
+sampling out to 250$\lambda$ and complete aperture-scale sampling out to 350$\lambda$ (at 150\,MHz). This sampling 
+strategy suppresses grating lobes in the synthesized beam and provides information for calibrating and correcting 
+direction-dependent antenna responses \citep{dillon_parsons2016}.
+Even with the sub-aperture dithering and long baselines, all 350 HERA elements can be robustly calibrated by taking advantage of 
+its highly redundant configuration \citep{liu_et_al2010,zheng_et_al2014}. 
+Resulting calibration errors range from $\sim5\%$ (in the core) to $\sim10\%$ (for outriggers)
+of the residual fractional noise per antenna after averaging.
+
+\begin{figure}[tbh]
+	\centering
+	\vspace{-5pt}
+	\includegraphics[width=1\textwidth,clip]{plots/HERA_Array_Config.eps}
+	\vspace{-25pt}
+	\caption{HERA's elements are divided between a 320-element, hexagonally-packed core and 30 outriggers (left). This produces instantaneous
+$uv$ coverage at triple the element spacing out to 250$\lambda$ at 150\,MHz (middle). All 350 elements can be redundantly calibrated 
+using the \citet{liu_et_al2010} technique, yielding calibration errors that are a small fraction of the residual noise per antenna (right).}
+		\label{fig:arrayConfig}
+			\vspace{-10pt}
+\end{figure}
+
+\vspace{-20pt}
+\subsection{Analog Signal Path}
+\vspace{-5pt}
+
+
+\noindent HERA's analog signal path, which operates from 50--250 MHz, emphasizes spectral smoothness and robustness.
+With receiver temperatures of 50--100 K readily achievable with ambient temperature electronics, 
+sky noise dominates the system temperature of telescopes operating below 300 MHz.  As a result,
+HERA's low-noise amplifiers (LNAs) are inexpensive, passively cooled components integrated into the
+antenna feed.  
+HERA's signal path emphasizes careful impedance matching between each component to avoid signal reflections that can induce foreground leakage.
+In particular, impedance matching between free space (377$\Omega$) and coaxial cable (50$\Omega$) is undertaken
+in the feed/balun at the front end of the signal chain, where the time constants of inevitable reflections are
+minimized.  For a similar reason, HERA houses analog-to-digital converters (ADCs) in nodes near the antenna elements
+to limit the total analog path length.
+
+While building to 128 elements during the first two project years, HERA reuses PAPER's tested and characterized 
+LNAs, cables, and post-amplifier modules, operating
+from 100--200 MHz.  In the third project year, these components are replaced by the 50--250 MHz, length-constrained signal
+path described above, supporting HERA's pre-reionization science and extending the lever-arm for modeling and suppressing smooth-spectrum foreground emission.
+
+\vspace{-20pt}
+\subsection{Digitization and Correlation}
+\label{sec:digital}
+\vspace{-5pt}
+
+
+\noindent Although correlator development has historically been one of the most 
+expensive aspects of building a large radio interferometer, this is no longer the case.
+CASPER \Mycitep{parsons_et_al2006}
+open-sourced the development of digital signal processing engines for astronomy and
+now has world-wide participation,
+with over 500 members at 73 institutions, and 
+five generations of hardware.
+On a modest budget, PAPER applied CASPER technology to develop and deploy new correlators
+annually for five years running, each quadrupling the computational capacity of its predecessor.
+Led at UC Berkeley's Radio Astronomy Lab (RAL),
+HERA efforts continue this incremental development cycle, using a packet-switched
+correlator architecture \Mycitep{parsons_et_al2008} that both PAPER and LEDA have
+applied to systems employing FPGAs and GPUs \citep{clark_et_al2011}.
+
+
+
+In order to meet the 35\,m specification for a maximum analog signal path, along with a growing need for system scalability, HERA beyond the first 128 elements will adopt a node-based architecture for amplification, digitization, channelization, and digital
+transmission in the field, building on MWA heritage. This design is merged with PAPER's clean 
+architecture for real-sampling and channelizing the entire analog passband at once, packetizing the data into
+10 Gb Ethernet format, and relying on commercial switches to perform the frequency/antenna corner-turn required for FX correlators
+
+{\bf Node}. HERA-350 employs RFI-tight node enclosures that each contain the final gain and digitization stages for
+signals from 12 antennas, along with power supplies, cooling, sensors, and a small server for monitor/control.  
+As part of previous HERA support,
+a new Smart Network ADC Processor (SNAP; Fig.~\ref{fig:hardware}) board has been incorporated 
+into the Collaboration for Astronomy Signal Processing and Electronics Research (CASPER) suite of hardware and firmware. This inexpensive board was co-designed by UC Berkeley and NRAO to be
+both the digitizer and F-engine in HERA's FX correlator architecture.
+Each SNAP board 
+digitizes and channelizes a 0--250 MHz band for 6 input signals (3 antennas, dual-polarization).
+A 200-MHz band of selectable channels is transmitted over optical fiber
+to a central container (see below), and on to the correlator.  Laboratory
+tests have successfully demonstrated robust transmission from the SNAP board, through 10 km of fiber optic cable, 
+into a 10 GbE switch using inexpensive, commercially available optical transceivers.
+Activities under this proposal include 
+testing and extending FPGA firmware,
+integrating and testing all components in the node subsystem, and providing a monitor/control
+access interface.
+
+\begin{figure}[t]
+\centering
+\vspace{-5pt}
+%\includegraphics[width=2.2in]{plots/ROACH2.png}
+\includegraphics[width=1.0\textwidth]{plots/casper_boards.png}
+%\includegraphics[height=1.7in]{plots/snap_board.png}
+\vspace{-20pt}
+\caption{
+Six generations of CASPER digital signal processing (left to right) culminating in the SNAP board (right, along with the long-haul fiber-link test setup), which was developed and tested under the previous HERA MSIP award.
+By preserving its toolflow, signal processing libraries, and interface code between hardware generations,
+CASPER combines with a scalable correlator architecture to enable the PAPER correlator to be 
+easily upgraded for HERA \Mycitep{parsons_et_al2006,parsons_et_al2008}.
+%
+}\label{fig:hardware}
+\vspace{-10pt}
+\end{figure}
+
+{\bf Central Container}.
+HERA's central container houses two significant subsystems adjacent to the array.  The first is a timing subsystem
+that maintains a GPS-disciplined oscillator and distributes timing
+signals (the sampling clock and 1 pulse-per-second synchronization) to the nodes.  The second
+subsystem is a passive fiber optic patch panel that couples
+the optical network from the nodes into the 192-filament optical fiber bundle 
+that connects to the KAPB. 
+
+{\bf Karoo Array Processing Building (KAPB)}.
+The KAPB houses the switch and CPUs
+that 
+complete the HERA correlator system.  A fiber optic bundle enters the KAPB and patches
+into local fiber optic cables. These cables terminate in optical transceivers which plug into a 240-port 10 GbE switch.
+Such switches, while large, are readily available commercially today.  Also connected to
+this switch are 30 servers, each hosting two dual-GPU graphics cards and two dual
+10 GbE network interface cards, which implement the cross-multiplication (X-Engine) component
+of the correlator during observations.  This estimate for the number of X-Engine servers
+is extrapolated from current GPU servers deployed on PAPER, assuming no improvement in bus
+speeds for transferring data into the GPU cores, but assuming that the computational
+capacity of GPU cores doubles once according to Moore's Law prior to purchasing
+these servers in year three of the project.
+Output data from the correlator are written to the data storage system described
+in the following section.
+
+\vspace{-20pt}
+\subsection{Data Storage, Compression, Transfer, and Computing}
+\label{sec:data}
+\vspace{-5pt}
+\noindent The HERA correlator generates $\sim4$~TB of raw data per 12-hour observing day.
+HERA's data management system archives this on-site in a 1.5 PB storage array, calibrates it in real-time
+on the basis of redundancy, compresses it by a factor of 20, and transfers it to our computing facility at NRAO.
+This real-time pipeline, based on a similar system for PAPER, is mature, computationally manageable, and 
+relatively agnostic with respect to observing parameters, making it a safe and robust first step in data processing
+\citep{zheng_et_al2014,parsons_et_al2014,ali_et_al2015}.
+The Internet link between the Karoo and data centers in the U.S.\ has been extensively tested, with assistance from SKA-SA, TENET
+(South African to London link provider) and GEANT (London to U.S.\ provider).   
+Transfer speeds are sufficient for streaming compressed data to the U.S.\ via the Internet. Portable storage is also
+provisioned as a fallback transfer method.
+
+With support from this grant, NRAO hosts the archiving, indexing, and processing of HERA data products. 
+Project data and public data products are served via the existing 
+NRAO archive at the Domenici Science Operations Center %(DSOC) 
+in Socorro, New Mexico, where it will be accessible through computing accounts and public web-based
+archive searches.
+NRAO also supports
+an attached 30-node processing cluster 
+coupled to 
+scratch storage
+for routine data inspection and lightweight analysis tasks.
+For the bulk application of processing-intensive data pipelines to HERA data,
+NRAO manages the dynamic acquisition of computing from
+external HPC and cloud-computing facilities, including the Amazon spot market and XSEDE. 
+Combined with legacy computing resources at UPenn and MIT, this plan leverages NRAO's
+expertise in managing and acquiring computing resources while providing distributed
+permanent resources for HERA's basic processing needs.
+
+
+
+
+%This effort leverages existing infrastructure at NRAO, with support 
+%for the expansion of the data storage and for upgrading to a 30-node computing cluster.  This cluster supports the bulk of the analysis by HERA collaborators (see \S\ref{sec:analysis}) that requires access to the full set of HERA observations.
+
+\vspace{-20pt}
+\subsection{Project Databases and Analysis Software} 
+\label{sec:software}
+\vspace{-5pt}
+
+\noindent HERA builds on the rich legacy of PAPER and MWA software and database systems 
+developed for field operations, data analysis, and simulation.  Examples range from
+the strictly versioned and unit-tested packages for field-deployed systems (e.g. the correlator, real-time processing, and
+monitor/control systems) to loose collections of scripts written for exploratory analysis.
+Software packages that support HERA analysis are open source, publicly 
+hosted\footnote{Including \url{github.com/AaronParsons/aipy}, \url{github.com/JeffZhen/omnical}, 
+\url{github.com/MiguelFMorales/FHD}, \url{github.com/MiguelFMorales/eppsilon}, \url{github.com/jpober/21cmSense},
+and \url{github.com/Nithyanandan/PRISim}.}, revision controlled, and unit-tested.  
+These include Omnical, a complete package for redundant baseline calibration;
+Astronomical Interferometry in Python (AIPY), a set of
+tools and file-format interfaces for reading visibilities, calibrating,
+rephasing, imaging, and deconvolution; Fast Holographic Deconvolution
+(FHD), a purpose-built tool for imaging, calibration, and foreground
+forward-modeling and subtraction \citep{sullivan_et_al2012}; Precision Radio Interferometry Simulator 
+(PRISim), a package for accurately simulating wide-field interferometric observations;
+21cmFAST, a fast, semi-numerical 21~cm signal simulator,
+and 21cmSense, a tool for forecasting power spectrum sensitivity.
+Other project code is aggregated and revision
+controlled in a public repository with separate sandboxes for each developer to ensure that
+HERA members have up-to-date copies of all project code to facilitate sharing and debugging.
+Such code includes the PAPER pipeline for foreground filtering and estimating power spectra from
+visibility data,
+the MWA power spectrum analysis codes---\eppsilon\ \citep{hazelton_et_al2016} and the 
+empirical covariance technique of \citet{dillon_et_al2015}---as well as
+machine-learning-based source finding, verification, and removal tools \citep{caroll_et_al2016,jacobs_et_al2016,beardsley_et_al2016}. 
+
+
+New software development will focus on integrating and improving the MWA and PAPER power spectrum and foreground removal pipelines,
+developing a monitor and control software interface and database for recording instrument metadata,
+extending, with support from Scuola Normale Superiore, semi-analytic and numerical models 
+of the 21~cm signal for robust parameter estimation, and developing
+machine learning interpolations of simulations for joint Monte Carlo estimation of cosmological and astrophysical parameters.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONSTRUCTION, COMISSIONING, TIMELINE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-18pt}
+\section{Array Construction and Timeline} \label{sec:timeline}
+\vspace{-5pt}
+\noindent On-site construction will proceed in stages, starting from the
+initial 37 elements that will be in place by project start.  These will be used
+in conjunction with the thoroughly characterized extant PAPER signal path and
+processing hardware for a very low risk initiation of scientific observations
+from the very beginning.  Additionally, the 19 HERA elements currently in
+place will also have had an extensive period of commissioning
+and characterization.  As elements 38 to 128 are installed in year 1, they can
+immediately be placed within the array and be used for observing.
+
+During this period, infrastructure for the new node-based system is installed
+and tested with the first elements beyond 128.  After the HERA-128 observing
+season, the full array is transitioned to use HERA's new hardware infrastructure.  In this same time frame, the existing PAPER processing
+container is moved to the edge of the array to house the timing sub-system
+and fiber optic splice cabinet while the correlator will move to the KAPB.
+Also, the data processing activity at Penn is transitioned to NRAO.
+Summarizing, the hardware deployment phases are in four categories:
+\begin{enumerate}
+\item Element construction:  linear process (years 1, 2 \& 3)
+\item Infrastructure:  (a) node power and fiber reticulation (years 1 \& 2), (b) container relocation (year 1), (c) node installation (years 2 \& 3)
+\item Signal path:  convert to node-based system after 128 elements (years 2 \& 3)
+\item Processing:  (a) data processor/server to NRAO (year 1), (b) X-engine \& real-time processor/storage to KAPB (year 2)
+\end{enumerate}
+
+\begin{figure}[th]
+	\vspace{-7pt}
+	\begin{tabular}{ll}
+	\begin{minipage}{5in}
+		\includegraphics[width=4.9in]{plots/timeline_short.pdf}
+		\end{minipage} & \hspace{-.15in}
+	\begin{minipage}{1.35in}
+\captionsetup{justification=raggedright,
+singlelinecheck=false
+}
+	\caption{Timeline of HERA construction, analysis development, observation, and scientific output.}
+	\label{fig:timeline}
+	\end{minipage}
+	\end{tabular}
+	\vspace{-8pt}
+\end{figure}
+
+
+
+The optimal EoR observing window is from September to April, with power spectrum limit results appearing about one year later.  Concurrent technique development and deployment will be on-going. Additional information is in the project management plan.
+\begin{itemize}[leftmargin=0.7in]
+\item[Year 1:] Observe with H37.  Real-time data pipeline, delay-space power spectrum (DSPS) pipeline, FHD pipeline.  21\,cm framework for incorporating with other probes. Construct H128.
+\item[Year 2:] Observe with H128.  Real-time calibration pipeline.  DSPS/FHD/global sky model integration. Snapshot imaging pipeline.  EoR parameter estimation development.  H37 results.  Construct H240.  {\em Data products:  power spectrum, Stokes I maps.}
+\item[Year 3:] Observe with H240.  Foreground-filtered imaging pipeline.  EoR parameter estimation development.   H128 results. Construct H350.  {\em Data products:  power spectrum, Stokes IQUV maps, foreground image cube.}
+\item[Year 4:] Observe with H350.  EoR parameter estimates.  H240 results.  {\em Data products:  power spectrum, global sky model IQUV, snapshots, foreground-filtered image cube.}
+%\item[Year 5:] Observe with H350.  H350 results.  {\em Data products:  power spectrum, global sky model IQUV, snapshots, foreground-filtered image cube.}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BROADER IMPACTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\pagebreak
+\vspace{-18pt}
+\section{Broader Impacts} \label{sec:BI}
+\vspace{-5pt}
+
+
+\noindent HERA will train the next generation of scientists in this field by incorporating a large number of undergraduate, graduate, and postdoctoral researchers in every aspect of developing the experiment---from design and construction to calibration, analysis, and science. To further broaden the impact of HERA, we propose to develop the CAMPARE-HERA Astronomy Minority Partnership (CHAMP) summer research program, which will address the NSF's goal of increasing the number of students from underrepresented groups in STEM research.  CHAMP builds on a partnership with the highly successful California Arizona Minority Partnership for Astronomy Research and Education (CAMPARE) program.  CHAMP will also expand the South African (SA) exchange program established under the current MSIP grant, where SA Master's and Ph.D.\ students integrate HERA science into their theses through summer internships at U.S.\ HERA institutions. Mentored by HERA's PIs, postdocs, and students, these two groups will make meaningful contributions to HERA science.
+
+\emph{\textbf{CAMPARE: 6 Years of Success.}}
+CAMPARE is an integrated program of year-round mentoring and authentic summer research opportunities in astronomy designed to engage and retain underrepresented minority (URM) students in STEM fields. Operating since 2009, CAMPARE has a demonstrated track record of promoting the success of URM and female students, as evidenced by graduation rates and STEM postgraduate enrollment far beyond the national average (see Fig.~\ref{fig:CAMPAREdemographics}).
+Several elements contribute to that success.  The process begins with an innovative recruiting approach, identifying students who have non-traditional indicators for achievement from among its network of 23 California State University and California Community campuses, almost all Hispanic Serving Institutions.  Paying for the students' summer research internships---including stipend, housing and travel---removes financial impediments. The students also receive year-round mentoring; such mentoring programs have been shown to positively impact student performance, academic self-esteem, and persistence within a major \citep{2001.PSPB..27,2003.JWMSE...9}.  Finally, they are supported in presenting their research to their peers and in scientific conferences; such professional development opportunities are critical for 
+increasing interest in pursuing a research career and the likelihood of obtaining a PhD, as noted in the 2006 report  \emph{Evaluation of NSF Support for Undergraduate Research Opportunities}.  CHAMP will incorporate all of CAMPARE's successful strategies.
+
+\begin{figure}[b!]
+  \vspace{-15pt}
+  \begin{tabular}{lc}
+      \begin{minipage}{3in}
+	\begin{center}
+	  \vspace{-0.1in}
+	  \hspace{-0.1in}
+	  \includegraphics[height=1.1in]{plots/CAMPAREdemographic.png}
+	\end{center}
+      \end{minipage} &
+      \begin{minipage}{3in}
+	\begin{center}
+	  \hspace{-0.15in}
+\small
+\begin{tabular}{|l|c|c|}
+\hline
+	&   \textbf{\% (N)}	  &  \textbf{Nat'l Avg} \\ 
+% &                         &  \textbf{comparison}\\ 
+\hline
+Graduation with BS &	97\% (36)	& $<$40\% \\ \hline
+Enrolled in MS or PhD 	 & 57\% (21)	&   20\%  \\ \hline
+Enrolled in PhD   &  	32\% (12) &	 2\% \\ \hline
+\end{tabular}
+%\end{table}  
+	  \end{center}
+	  \vspace{-14pt}
+	  \caption{Demographics for the CAMPARE program 2010-2015 (62 students), compared to the national for URM students in STEM.}
+	  \label{fig:CAMPAREdemographics}  
+      \end{minipage}
+  \end{tabular}
+  \vspace{-13pt}
+\end{figure}
+
+%\begin{table}
+%\caption{CAMPARE scholars enrolled in PhD programs.}
+%\label{tab:CAMPAREphd}
+%\begin{tabular}{|l|l|l|l|}\hline
+%\textbf{Name} &	\textbf{Ethnicity}	&\textbf{Gender}	& \textbf{Graduate program} \\ \hline
+%Nicole Sanchez**&	Hispanic&	Female	&Fisk-Vanderbilt, Astronomy\\ \hline
+%Gabriela Serna&	Hispanic&	Female	&College Science Teaching, Syracuse\\ \hline
+%Mario Cabrera**	&Hispanic	&Male	&Astronomy, University of Rochester\\ \hline
+%Aaron Castellanos*	&Hispanic	&Male	&Aeronautics and Astronautics, Stanford\\ \hline
+%Chris Macias**&	Hispanic&	Male	&Astronomy, Indiana University\\ \hline
+%Rem Sexton**	&Hispanic&	Male	&Astronomy, UC Riverside\\ \hline
+%Heather Chilton	&White&	Female	&Earth and Atmospheric Sciences, Georgia Tech\\ \hline
+%Greta Cukrov	&White&	Female	&Chemical Physics, Kent State\\ \hline
+%Rachel Hatch*	&White&	Female	&Geophysics, University of Nevada, Reno\\ \hline
+%Jill Walker*	&White&	Female	&Astrobiology, Georgia Tech\\ \hline
+%Conor Rowland**	&White&	Male&Physics, University of Oregon\\ \hline
+%Alec Vinson**	&White&	Male	&Astronomy, UCLA\\ \hline
+%\end{tabular}
+%\end{table}
+
+\emph{\textbf{CHAMP Summer Research Program.}} CHAMP will consist of an annual 10-week summer experience shared by the undergraduate CHAMP Scholars and the SA graduate students. The summer will begin with a week-long ``crash course'' in radio astronomy, which will provide the scientific background and programming skills for successful research. This common experience will be an effective cohort-building experience, and will facilitate a powerful cultural interaction between these two groups, each underrepresented in science in their own country.  The students will then spend the next 9 weeks at one of the HERA sites, with pairs of CHAMP Scholars and SA students working together for mutual support and continued cultural exchange. Finally, there will be an end-of-summer research symposium at Cal Poly Pomona at which all participants will present their work. HERA mentors and other scientists will attend this symposium, as well as local family members of CHAMP Scholars.
+Family support is critical for all students as they make their career choices---including pursuing a Ph.D.\ in astronomy---especially for URM and first-generation college students \citep{slovacek_et_al2011}. 
+
+\emph{\textbf{CHAMP Year-Round Mentoring Program.}} The continued mentoring of CHAMP Scholars
+is critical to the success of the program.  The CHAMP program will benefit from the mature CAMPARE year-round mentoring program that encompasses faculty mentoring of Scholars both at the home and research institutions; student-to-student peer mentoring; and outreach to the surrounding community colleges for the purposes of mentoring and recruiting younger students to attend college and to participate in CHAMP. CAMPARE and CHAMP Director Rudolph and his CAMPARE colleagues will give feedback on faculty mentorship of CHAMP Scholars.
+
+
+\begin{wrapfigure}{r}{0.62\textwidth}
+\centering
+\vspace{-12pt}
+   \includegraphics[height=0.195\textwidth]{plots/CAMPAREdinner.jpg}
+    \includegraphics[height=0.195\textwidth]{plots/CAMPAREconf.jpg} \\
+    \includegraphics[height=0.21\textwidth]{plots/HERA_SA_Summer_Students_2015.jpg}
+    \includegraphics[height=0.21\textwidth]{plots/students_sa_jonnie.jpg}
+  \vspace{-5pt}
+  \caption{Top left to bottom right: 2014 CAMPARE mentoring dinner; CAMPARE Scholar Nicole Sanchez at the 2012 AAS;
+  cohort of SA exchange students under the current MSIP; SA interns working on PAPER.}
+	\label{fig:CAMPAREinteract}
+  \vspace{-10pt}
+\end{wrapfigure} 
+
+All CHAMP Scholars will be strongly encouraged to present their results at local or national meetings, most commonly the AAS January meeting (Fig. \ref{fig:CAMPAREinteract}). 
+CHAMP provides support to participate in these professional activities. HERA collaborators and faculty members at the home institutions mentor Scholars in the creation of their presentations, and accompany them to the conferences. Experience with CAMPARE shows that many of these projects will lead to student co-authored refereed publications.
+
+\emph{\textbf{A Significant Impact.}} Together, the CHAMP and CAMPARE programs have the potential to transform the national landscape for women and URM students in astronomy, particularly the latter. With an average of 5 PhDs awarded to URM students in astronomy each year, CHAMP's support of 6--8 students per year can have a national impact on the number of women and URM students entering graduate programs.
+
+\emph{\textbf{Project Evaluation and Dissemination.}}
+Evaluation of CHAMP will take advantage of the existing CAMPARE evaluation program, which has been developed and implemented by an external consultant. Evaluation will assess the recruitment, selection, retention, and success of CHAMP Scholars via metrics such as tracking interest in the program, diversity of Scholars, number participating in professional development workshops, number completing summer internships, research projects, publications and presentations, number graduating, number entering and completing graduate degrees. Scholar feedback to the program will be important for formative evaluation and program improvement. Feedback will be solicited in writing and through interviews with students and mentors, both faculty and near-peer. The CHAMP Director and other senior personnel will continue to remain in contact with Scholars beyond graduation to understand how their experiences affected their education and career decisions. We will also track the progress of Scholars via survey.  CHAMP Director Rudolph and other senior personnel will present results at the two major national astronomy meetings
+(AAS
+and ASP), as well as at other appropriate, more general education and diversity conferences. Dr.\ Rudolph will also continue giving colloquia, seminars, and other presentations at universities in California and around the nation.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PRIOR NSF SUPPORT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\vspace{-18pt}
+\section{Results from Prior NSF Support} \label{sec:NSF}
+\vspace{-5pt}
+%Section IIIA
+
+%If any PI or co-PI ... has received NSF funding ... in the past five years ...,
+%information on the award is required for each PI and co-PI ....  In cases where
+%the PI or co-PI has received more than one award ..., they need only report on
+%the one award most closely related to the proposal.  The following information
+%must be provided:
+%(a)	the NSF award number, amount and period of support;
+%(b)	the title of the project;
+%(c)	a summary of the results of the completed work, including accomplishments,
+%supported by the award. The results must be separately described under two
+%distinct headings, Intellectual Merit and Broader Impacts;
+%(d)	a listing of the publications resulting from the NSF award
+%(e)	evidence of research products and their availability, including, but not
+%limited to: data, publications, samples, physical collections, software, and
+%models, as described in any Data Management Plan; and
+%(f)	if the proposal is for renewed support, a description of the relation of
+%the completed work to the proposed work.
+% LIST OF PEOPLE REQUIRING MENTION: Parsons, Aguirre, Bowman, Bradley, Furlanetto, Hewitt, Morales, Pober, Rudolph
+
+\noindent The HERA team consists of the PIs and technical leaders of numerous successful NSF-funded projects targeting the high-$z$ 21\,cm signal, and an NSF-funded PAARE project. They include:
+\begin{itemize}[noitemsep,nolistsep,leftmargin=11pt]
+\item NSF Mid-Scale Instrumentation, ``{\it Collaborative Research: Precision Array for Probing the Epoch of Reionization (PAPER)}" 
+(\#1129258 + \#1125558; \$2,629,198 + \$1,841,992; 09/11 -- 08/16), PIs: Parsons and Bradley, co-PI: Aguirre.
+\begin{itemize}[noitemsep,nolistsep,leftmargin=11pt]
+\item{\bf Intellectual Merit:}
+This proposal expanded PAPER in South Africa to 128 elements (delivered on schedule with extra
+functionality) and supported two years of observing and analysis.
+PAPER pioneered redundant antenna configurations \Mycitep{parsons_et_al2012a},
+ drift-scanning elements \Mycitep{parsons_et_al2010},
+a scalable correlator architecture \Mycitep{parsons_et_al2008,parsons_et_al2006},
+filter-based data compression \Mycitep{parsons_backer2009,parsons_et_al2014},
+beam sculpting via fringe-rate filtering \Mycitep{parsons_et_al2015},
+and the delay-spectrum foreground avoidance technique \Mycitep{parsons_et_al2012b}.
+PAPER-32 results demonstrated the foregroung wedge in power-spectrum measurements
+\Mycitep{pober_et_al2013b}, and placed the first physically meaningful upper limits on the 21\,cm reionization signal, showing
+evidence for IGM heating prior to reionization \Mycitep{parsons_et_al2014}.  PAPER-64 results applied new optimal signal
+estimation \Mycitep{liu_et_al2014a,liu_et_al2014b}, culminating
+in improved upper limits \Mycitep{ali_et_al2015,pober_et_al2015}.  
+PAPER-128 analysis is
+underway.  Other publications supported by this grant include \Mycitet{liu_parsons2015, liu_et_al2015,moore_et_al2016,
+jacobs_et_al2013,moore_et_al2013,stefan_et_al2013,
+pober_et_al2012}, for a total of 17.
+\item{\bf Broader Impacts:}
+PAPER's broader impacts included advancing low-frequency radio interferometry techniques, 
+training of graduate students and postdocs, developing calibration algorithms, and facilitating the development of HERA. 
+Mentoring outcomes include four undergraduates advancing to graduate programs, three Ph.D. theses being filed, 
+three supervised postdocs receiving national prize fellowships, and
+one obtaining a faculty position.  Other outcomes include the formation of the HERA collaboration, developing and
+disseminating the delay filtering and redundant calibration techniques, and developing and open-sourcing
+a packetized correlator architecture with associated signal processing hardware and software.
+\end{itemize}
+ 
+\item NSF Mid-Scale Innovations Program ``{\it HERA: Illuminating Our Early Universe}" 
+(\#1440343; \$2,144,113; 09/14 -- 08/16), PI: Parsons, subaward-PIs: Aguirre, Bernardi,
+Bowman, Bradley, Furlanetto, Hewitt, Morales. 
+\begin{itemize}[noitemsep,nolistsep,leftmargin=11pt]
+\item{\bf Intellectual Merit:}
+This grant funds the field testing of new 14-m fixed-pointing parabolic dishes deployed in a 37-element array at the HERA site in South Africa. One year in,
+progress is on time and on budget with 19 elements already constructed and being commissioned. 
+Meanwhile, prototype dishes constructed at NRAO Green Bank confirm electromagnetic predictions of the HERA element's chromatic response and show that it delivers roughly 20 times the sensitivity of a PAPER element \Mycitep{neben_et_al2016,thyagarajan_et_al2016,ewallwice_et_al2016,patra_et_al2016}.
+Progress on HERA's digital system has also proceeded, with the successful fabrication and testing of a
+new Smart Networked Analog-to-digital Processor (SNAP) digitization and processing board.  
+Other publications, including \citet{zheng_et_al2014,dillon_et_al2015,dillon_parsons2016} and \citet{kohn_et_al2016}, develop improvements to HERA design and analysis.
+
+\item{\bf Broader Impacts:}
+Besides training undergraduates, graduate students, and postdoctoral researchers in instrumentation 
+and facility development, this grant initiated a student exchange 
+program with South Africa, hosting 3--4 students per summer working on HERA research and engineering.
+We also initiated the HERA collaboration with the CAMPARE program, beginning an REU/internship
+for URM students from California community colleges.
+\end{itemize}
+
+\item NSF Astronomy \& Astrophysics Postdoctoral Fellowship  ``{\it First Science from the Epoch of Reionization with the 21cm Line}" 
+(\#1302774; \$225,667; 09/2013 -- 12/2015), PI: Pober.
+\begin{itemize}[noitemsep,nolistsep,leftmargin=11pt]
+\item{\bf Intellectual Merit:} 
+The fellowship directly produced four publications \citep{pober_et_al2014,pober2015,pober_et_al2015,pober_et_al2016}, including the most meaningful 21\,cm constraints on the high redshift IGM to date. It also provided for major contributions to six more papers
+\citep{jacobs_et_al2013,parsons_et_al2014,jacobs_et_al2015,thyagarajan_et_al2015a,thyagarajan_et_al2015b,ali_et_al2015}.  
+\item{\bf Broader Impacts:}
+This fellowship supported a research-based community college transfer program at the University of Washington. Of the six students mentored by Pober, four have graduated (with one in a Physics 
+Ph.D. program); the others are on track to graduate.
+\end{itemize}
+
+\item NSF Partnership for Astronomy and Astrophysics Research and Education ``{\it The California-Arizona Minority Partnership for Astronomy Research and Education}"
+(\#1322432; \$45,228; 09/13 -- 09/14), PI: Rudolph, co-PI Povich.
+\begin{itemize}[noitemsep,nolistsep,leftmargin=11pt]
+\item{\bf Intellectual Merit:} Continuation of grant \#0847170 (\$1,237,695; 07/09 -- 02/13) to advance undergraduate astronomy research and education among Hispanic and other minority students 
+in order to promote their participation and advancement in Astronomy and closely related fields.
+%and increase their numbers in Ph.D. programs in those fields. 
+\item{\bf Broader Impact:}
+Since 2009, the CAMPARE program has placed 62 scholars from 10 California State University
+campuses and 3 community colleges at 9 research institutions in California,
+Arizona, and Wyoming to conduct summer research. Of these 62 scholars, 45\% are
+women and 59\% are Hispanic, African-American, or multiple ethnicity, and 86\%
+of CAMPARE Scholars are in one or both of these target groups. Of the
+37 CAMPARE Scholars to graduate from college so far, 12 (32\%) are
+enrolled in Ph.D. programs, and 21 (57\%) are pursuing a graduate
+degree---15 and 3 times the national averages for underrepresented minority students, respectively. 
+Publications include \citet{prather_et_al2009a,prather_et_al2009b,prather_et_al2011,schlingman_et_al2012,masiero_et_al2012,eisner_et_al2013,thompson_et_al2013,rudolph2013,eisner_et_al2015,elsaesser_et_al2014,griffith_et_al2015}; and \citet{sexton_et_al2015}.
+\end{itemize}
+\item Hazelton from University of Washington has no prior NSF support.
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WHY US? WHY NOW?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{-18pt}
+\section{Conclusion: Why us? Why now?}
+\vspace{-5pt}
+\label{sec:conclusion}
+
+\noindent With first-generation instruments, the HERA team has led a revolution in our understanding of how to best perform 21\,cm cosmology measurements.
+In the past three years, we have developed the EoR window paradigm for isolating foreground systematics, implemented novel
+calibration and power spectrum analysis pipelines, made precision measurements of astrophysical foregrounds, and published deep power 
+spectrum limits that constrain heating in the early universe.  HERA's design, now validated in the field with MSIP seed funding, 
+is the result of these advances.
+
+
+HERA is ``the right instrument at the right time.'' With first generation experiments approaching the limits of their sensitivity, it is now critical to build upon our new knowledge and experience to advance beyond them. HERA's large collecting area and optimized design enable precise constraints of EoR astrophysics and a broad range of high-impact secondary science, all before SKA-low becomes operational.
+With CHAMP, HERA expands CAMPARE's proven methods and recruitment network to bring more students from underrepresented groups into cutting-edge astronomy research and support them with year-round mentoring.
+By bringing the U.S.\ teams from PAPER, the MWA, MITEoR, and EDGES together with strategic international partners,
+the HERA collaboration has consolidated theoretical and experimental leadership in the field, 
+and is equipped to deliver the proposed science. By building HERA, we can provide the community with unprecedented insights into this key new area of cosmology.
+
+
+\clearpage
+\setcounter{page}{1}
+\thispagestyle{empty}
+%\bibliographystyle{apj}
+%\bibliographystyle{hapj}
+\nocite{Beardsley:thesis}
+\nocite{kolopanis_et_al2016}
+\bibliographystyle{jponew}
+%\bibliographystyle{unsrt}
+{\small \bibliography{biblio}}
+
+
+\end{document}
+
